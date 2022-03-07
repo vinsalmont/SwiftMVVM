@@ -56,14 +56,6 @@ extension HomeViewModel {
         let card = filteredCards[indexPath.row]
         return (name: card.name, type: card.type, desc: card.desc, imageURL: card.cardImages.first?.imageURL)
     }
-
-    func filterByType(type: Types) {
-        self.selectedType = type
-    }
-
-    func selectedTypeName() -> String {
-        self.selectedType.name
-    }
 }
 
 // MARK: - Service
