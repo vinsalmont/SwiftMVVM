@@ -75,6 +75,14 @@ extension HomeViewModel {
             }
         }
     }
+
+    func filterByType(type: Types) {
+        self.selectedType = type
+    }
+
+    func selectedTypeName() -> String {
+        self.selectedType.name
+    }
 }
 
 // MARK: - Filter Data
