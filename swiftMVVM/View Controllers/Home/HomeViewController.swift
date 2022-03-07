@@ -102,7 +102,10 @@ extension HomeViewController: RequestDelegate {
                 self.stopLoading()
             case .error(let error):
                 self.stopLoading()
-                self.present(error: error)
+                self.present(error: error, customAction: UIAlertAction(title: "Try Again", style: .default, handler: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.viewModel.loadData()
+                }))
             }
         }
     }

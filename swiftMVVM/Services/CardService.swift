@@ -53,7 +53,7 @@ final class CardService {
     static func getAllCards(completion: @escaping (Result<[Card], Error>) -> Void) {
         guard Reachability.isConnectedToNetwork(),
               let url = URL(string: Endpoint.cardList.url) else {
-//                  completion(.failure(<#T##Error#>))
+                  completion(.failure(CustomError.noConnection))
                   return
               }
 
@@ -68,7 +68,7 @@ final class CardService {
             }
 
             guard let data = data else {
-//                completion(.failure(Error))
+                completion(.failure(CustomError.noData))
                 return
             }
 

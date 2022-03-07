@@ -25,7 +25,7 @@ class AppController: UIViewController {
 }
 // MARK: - UIAlertController methods
 extension AppController {
-    func present(error: Error) {
+    func present(error: Error, customAction: UIAlertAction? = nil, handler: ((UIAlertAction) -> Void)? = nil) {
         DispatchQueue.main.async {
             self.present(title: "Oops", message: error.localizedDescription)
         }
