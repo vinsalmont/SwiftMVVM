@@ -52,8 +52,9 @@ extension HomeViewModel {
         filteredCards.count
     }
 
-    func getCard(for indexPath: IndexPath) -> Card {
-        filteredCards[indexPath.row]
+    func getInfo(for indexPath: IndexPath) -> (name: String, type: String, desc: String, imageURL: String?) {
+        let card = filteredCards[indexPath.row]
+        return (name: card.name, type: card.type, desc: card.desc, imageURL: card.cardImages.first?.imageURL)
     }
 
     func filterByType(type: Types) {

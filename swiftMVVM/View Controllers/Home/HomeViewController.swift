@@ -81,7 +81,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: CardListCell.self, indexPath: indexPath)
-        cell.configure(viewModel: viewModel.getCard(for: indexPath))
+        cell.configure(info: viewModel.getInfo(for: indexPath))
         return cell
     }
 }

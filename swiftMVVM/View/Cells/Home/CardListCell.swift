@@ -35,6 +35,7 @@ final class CardListCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = #imageLiteral(resourceName: "card-placeholder")
         return imageView
     }()
 
@@ -105,13 +106,13 @@ private extension CardListCell {
 
 // MARK: - Configuration
 extension CardListCell {
-    func configure(viewModel: Card) {
-        self.titleLabel.text = viewModel.name
-        self.typeLabel.text = viewModel.type
-        self.typeLabel.textColor = UIColor.typeColor(type: viewModel.type)
-        self.descriptionLabel.text = viewModel.desc
-        guard let urlString = viewModel.cardImages.first?.imageURL,
-              let imageURL = URL(string: urlString) else { return }
+    func configure(info: (name: String, type: String, desc: String, imageURL: String?)) {
+        self.titleLabel.text = info.name
+        self.typeLabel.text = info.type
+        self.typeLabel.textColor = UIColor.typeColor(type: info.type)
+        self.descriptionLabel.text = info.desc
+        guard let urlString = info.imageURL,
+        let imageURL = URL(string: urlString) else { return }
         
         self.cardImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "card-placeholder"))
     }
