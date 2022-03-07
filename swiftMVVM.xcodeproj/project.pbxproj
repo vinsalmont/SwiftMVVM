@@ -21,6 +21,7 @@
 		87E26FE427D5370D002DF97E /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E26FE327D5370D002DF97E /* RequestDelegate.swift */; };
 		87F55C5327D53EA0001BE82D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87F55C5227D53EA0001BE82D /* Kingfisher */; };
 		87F55C5627D58B56001BE82D /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 87F55C5527D58B56001BE82D /* ProgressHUD */; };
+		87F55C5927D58C53001BE82D /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F55C5827D58C53001BE82D /* ViewState.swift */; };
 		DC0D721121DFC23B0073A710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0D721021DFC23B0073A710 /* AppDelegate.swift */; };
 		DC0D721821DFC23D0073A710 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC0D721721DFC23D0073A710 /* Assets.xcassets */; };
 		DC0D721B21DFC23D0073A710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0D721921DFC23D0073A710 /* LaunchScreen.storyboard */; };
@@ -56,6 +57,7 @@
 		87E26FDF27D52CE2002DF97E /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		87E26FE127D52F55002DF97E /* CardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModels.swift; sourceTree = "<group>"; };
 		87E26FE327D5370D002DF97E /* RequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
+		87F55C5827D58C53001BE82D /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		DC0D720D21DFC23B0073A710 /* swiftMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0D721021DFC23B0073A710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC0D721721DFC23D0073A710 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		87F55C5727D58C49001BE82D /* State */ = {
+			isa = PBXGroup;
+			children = (
+				87F55C5827D58C53001BE82D /* ViewState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 		DC0D720421DFC23B0073A710 = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +296,7 @@
 		DC47751522273F8800E4F913 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				87F55C5727D58C49001BE82D /* State */,
 				1C4C59192436520700009ABC /* Helpers */,
 				DC47751622273F8D00E4F913 /* Extensions */,
 			);
@@ -441,6 +452,7 @@
 				DC0D724321DFC4E40073A710 /* Environment.swift in Sources */,
 				DC0D721121DFC23B0073A710 /* AppDelegate.swift in Sources */,
 				1C4C591D2436653D00009ABC /* UITableView.swift in Sources */,
+				87F55C5927D58C53001BE82D /* ViewState.swift in Sources */,
 				87E26FE027D52CE2002DF97E /* CardService.swift in Sources */,
 				1C4C59252436686500009ABC /* AppController.swift in Sources */,
 				64DDF44C22BD6FC400643270 /* SplashController.swift in Sources */,

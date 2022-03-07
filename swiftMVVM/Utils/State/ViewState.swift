@@ -1,5 +1,5 @@
 //
-//  RequestDelegate.swift
+//  ViewState.swift
 //  swiftMVVM
 //
 //  Created by Vinicius Salmont on 06/03/22.
@@ -8,6 +8,9 @@
 
 import Foundation
 
-protocol RequestDelegate: AnyObject {
-    func didUpdate(with state: ViewState)
+enum ViewState {
+    case idle
+    case loading
+    case success
+    case error(Error)
 }

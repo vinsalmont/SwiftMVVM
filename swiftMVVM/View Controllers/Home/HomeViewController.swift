@@ -88,16 +88,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: RequestDelegate
 extension HomeViewController: RequestDelegate {
-    func didFinish(with status: RequestStatus) {
-        DispatchQueue.main.async {
-            switch status {
+    func didUpdate(with state: ViewState) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            switch state {
+            case .idle:
+                break
+            case .loading:
+                self.startLoading()
             case .success:
                 self.tableView.setContentOffset(.zero, animated: true)
                 self.tableView.reloadData()
-            case .failed(let error):
+                self.stopLoading()
+            case .error(let error):
+                self.stopLoading()
                 self.present(error: error)
             }
         }
-
     }
 }

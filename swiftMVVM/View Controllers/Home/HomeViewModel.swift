@@ -27,12 +27,22 @@ enum Types: Int, CaseIterable {
 
 final class HomeViewModel {
     weak var delegate: RequestDelegate?
+    private var state: ViewState {
+        didSet {
+            self.delegate?.didUpdate(with: state)
+        }
+    }
+
     private var cards: [Card] = []
     private var filteredCards: [Card] = []
     private var selectedType: Types = .all {
         didSet {
             self.filterData()
         }
+    }
+
+    init() {
+        self.state = .idle
     }
 }
 
@@ -58,16 +68,17 @@ extension HomeViewModel {
 // MARK: - Service
 extension HomeViewModel {
     func loadData() {
+        self.state = .loading
         CardService.getAllCards { result in
             switch result {
             case let .success(cards):
                 self.cards = cards
                 self.filteredCards = cards
-                self.delegate?.didFinish(with: .success)
+                self.state = .success
             case let .failure(error):
                 self.cards = []
                 self.filteredCards = []
-                self.delegate?.didFinish(with: .failed(error))
+                self.state = .error(error)
             }
         }
     }
@@ -78,17 +89,17 @@ private extension HomeViewModel {
     func filterData() {
         guard selectedType != .all else {
             self.filteredCards = cards
-            self.delegate?.didFinish(with: .success)
+            self.state = .success
             return
         }
 
         guard selectedType != .monsters else {
             self.filteredCards = self.cards.filter { !$0.type.lowercased().contains(Types.spell.name.lowercased()) && !$0.type.lowercased().contains(Types.trap.name.lowercased()) }
-            self.delegate?.didFinish(with: .success)
+            self.state = .success
             return
         }
 
         self.filteredCards = self.cards.filter { $0.type.lowercased().contains(self.selectedType.name.lowercased()) }
-        self.delegate?.didFinish(with: .success)
+        self.state = .success
     }
 }
