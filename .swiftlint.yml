@@ -1,0 +1,19 @@
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace
+  - discarded_notification_center_observer
+  - todo
+included: # paths to include during linting. `--path` is ignored if present.
+  - swiftMVVM
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+  - swiftMVVM/External
+line_length: 180
+identifier_name:
+  min_length: 2
+large_tuple:
+  warning: 3
+  error: 4
+nesting:
+  type_level: 2
+force_cast: warning

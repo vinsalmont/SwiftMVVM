@@ -1,0 +1,14 @@
+//
+//  Staging.xcconfig
+//  swiftMVVM
+//
+//  Created by Vinícius Salmont
+//  Copyright © 2022 Salmont Dev. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// App Settings
+APP_NAME = swiftMVVM Stag
+APP_BUNDLE_ID = enter.bundle.id

@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  swiftMVVM
+
+  Created by Vinícius Salmont
+  Copyright © 2022 Salmont Dev. All rights reserved.
+*/
+
+/*
+ GENERAL
+ */
+"oops" = "Oops";
+"ok" = "Ok";
